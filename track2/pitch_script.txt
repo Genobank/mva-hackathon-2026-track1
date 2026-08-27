@@ -1,19 +1,23 @@
 This is GenoBank.io, Track 2 of the Rare Disease, Real Kid MVA hackathon. Research hypothesis. Not medical care.
 
-Track 1 found biallelic BUB1B loss of function. One allele is a stop at leucine 737. That deletes the kinase, residues 766 to 1050. The other allele is asparagine 1002 to lysine, a kinase missense with AlphaMissense 0.9229. Independent VEP and EVEE both call the stop pathogenic-class. EVEE names Mosaic variegated aneuploidy syndrome 1.
+Track 1 found biallelic BUB1B loss of function. One allele is a stop at leucine 737, in exon 17 of 23. The other is asparagine 1002 to lysine, a kinase missense with AlphaMissense 0.9229. Independent VEP and EVEE both call the stop pathogenic-class. EVEE names Mosaic variegated aneuploidy syndrome 1.
 
-Cosic family-frequency scoring on the remaining chain is the mechanistic fact that changes the drug map. Electron-ion potential at 37.7 residues still reads 81 percent of wild type. The N-terminal spindle adaptor is still there. Piezoelectric scoring at 88 residues falls to 53 percent. The kinase-scale harmonic is gone. Lysine 668, the SIRT2 site that controls BUBR1 protein stability, is on that remaining chain.
+A stop in exon 17 of 23 is nonsense-mediated decay expected. The default remaining protein is the full-length missense allele, not a stable kinase-dead stub. That is closer to the BubR1 hypomorphic mouse than a truncated chain sitting in the cell.
 
-There is no licensed medicine for MVA. We do not propose microtubule poisons, MPS1 inhibitors, or aneuploid-cell killers as a constitutional therapy. Those agents silence a checkpoint that is already weak, or they select against mosaic cells that are this child's tissues.
+If any truncated chain escapes decay, Cosic family-frequency scoring still maps it. Electron-ion potential at 37.7 residues reads 81 percent of wild type. The N-terminal spindle adaptor is still encoded. Piezoelectric scoring at 88 residues falls to 53 percent. The kinase-scale harmonic is gone. Lysine 668, the SIRT2 site, is on the missense protein for certain.
 
-Three market-approved agents map onto the mouse genetics.
+Three doors. Restore remaining BUBR1 through SIRT2 and NAD plus. Brake extra-mitotic mTOR and AMPK. Do not silence a checkpoint that is already weak.
 
-First, nicotinamide, with nicotinamide riboside as the research analog. SIRT2 deacetylates BUBR1 at lysine 668 and stops the protein being tagged for destruction. North and colleagues showed that raising NAD plus, or overexpressing SIRT2, increases BUBR1 protein and extends lifespan in BubR1-hypomorphic mice by 58 percent. That is the only candidate whose target is BUBR1 itself.
+We do not propose microtubule poisons, MPS1 inhibitors, or aneuploid-cell killers as a constitutional therapy. Baker's BubR1 mice are also the founding senolytic model. Dasatinib plus quercetin is not ranked: no pediatric MVA label, and this child has a rhabdomyosarcoma history.
 
-Second, sirolimus. BubR1 allelic-series mice have mTORC1 hyperactivity that tracks muscle wasting. This phenotype list includes skeletal muscle atrophy and failure to thrive. Sirolimus is an approved mTORC1 inhibitor with pediatric use in tuberous sclerosis. It does not restore chromosome segregation. It is a hypothesis for the extra-mitotic tissue failure.
+R is a genotype index, not a probability of benefit. Mechanism, remaining-protein geometry, phenotype, pediatric label, times 1 minus contraindication. Weights were frozen before scoring.
 
-Third, metformin. An AMPK activator with pediatric use. A milder metabolic and mTOR brake. Not a cytotoxic selector.
+First, nicotinamide, with nicotinamide riboside as the research analog. SIRT2 deacetylates BUBR1 at lysine 668. North 2014: raising NAD plus extends BubR1-hypomorphic mouse median lifespan 58 percent. Responsiveness index 70 of 100. The only ranked candidate whose target is BUBR1 itself.
 
-Rank order is nicotinamide, then sirolimus, then metformin. That is a research ranking for a judging panel, not a treatment plan. The same remaining-chain map scales to CEP57 and TRIP13 MVA without putting a genome on a laptop.
+Second, metformin. An AMPK activator with pediatric use. Tang and Amon used high-dose AICAR as an aneuploid-cell killer. We keep low-dose AMPK as a metabolic buffer, not a cytotoxic selector. Index 53.
 
-Thank you to the child and family, and to Sage Bionetworks, the MVA Society, Hugging Face, BEACON, AWS, and Anthropic.
+Third, sirolimus. BubR1 mice have mTORC1 hyperactivity that tracks muscle wasting. Strongest phenotype match. Drop the rhabdomyosarcoma penalty and sirolimus rises to 71, essentially tied with nicotinamide. With that penalty, the index is 42. That is why it is third, not first.
+
+Rank order is nicotinamide 70, metformin 53, sirolimus 42. A research ranking for a judging panel, not a treatment plan, and not a probability of benefit.
+
+The same remaining-protein map scales to CEP57 and TRIP13 MVA without putting a genome on a laptop. Thank you to the child and family, and to Sage Bionetworks, the MVA Society, Hugging Face, BEACON, AWS, and Anthropic.

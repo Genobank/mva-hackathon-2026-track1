@@ -16,12 +16,13 @@ Track 1 scored 100 / 100 rank points, F-max 1.000, full match at rank 1.
 
 ## Track 2 (drug repositioning)
 
-- `genobank_track2_report.md`: mechanism plus 3 market-approved candidates
+- `wisdom777_track2_report.md` / `genobank_track2_report.md`: remaining-protein ranking after NMD on BUB1B exon 17 of 23
 - `genobank_track2_methods.xlsx`: official judging form
-- `track2/reposition_bub1b.py`: genome-free remaining-chain map
-- `track2/pitch_script.txt` and `track2/genobank_track2_pitch.mp4`: 3-minute pitch (upload to YouTube or Vimeo before Space submit)
+- `track2/reposition_bub1b.py`: genome-free map plus R index
+- `track2/pitch.html`: 12-slide Techstars-style deck (official GenoBank.io logo)
+- `track2/pitch_script.txt` and `track2/genobank_track2_pitch.mp4`: 3-minute pitch
 
-Candidates: nicotinamide (SIRT2/NAD+ stabilize remaining BUBR1 at K668), sirolimus (mTORC1 in BubR1 mice), metformin (AMPK). Mitotic poisons and aneuploid-cell killers are rejected as constitutional therapy.
+R index (not a clinical probability): nicotinamide 70, metformin 53, sirolimus 42. Ivermectin (taxane-class microtubule stabilizer) R 14, rejected. Senolytics R 19, rejected. Mitotic poisons and aneuploid-cell killers are rejected as constitutional therapy. Research hypothesis. Not medical care.
 
 ## Ranking
 

@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GenoBank.io · Track 2 pitch · BUB1B MVA1</title>
+<style>
+:root{
+  --ink:#000000;
+  --navy:#1D1652;
+  --blue:#3B5BDB;
+  --alert:#8C1515;
+  --paper:#ffffff;
+  --wash:#F4F1FF;
+  --m:#1D1652;
+  --g:#3B5BDB;
+  --p:#0B6E4F;
+  --l:#7A5800;
+  --c:#8C1515;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;height:100%;background:#d8d6e2;color:var(--ink);
+  font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;}
+.hint{position:fixed;right:14px;top:12px;z-index:9;font:700 11px/1 ui-monospace,monospace;
+  letter-spacing:.06em;text-transform:uppercase;color:var(--navy);}
+.deck{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:18px;}
+.slide{display:none;position:relative;width:min(96vw,1280px);aspect-ratio:16/9;
+  background:var(--paper);border-radius:16px;box-shadow:0 22px 70px rgba(29,22,82,.28);
+  padding:4.2% 5.4%;overflow:hidden;}
+.slide.active{display:flex;flex-direction:column;}
+.lab{position:absolute;top:4.4%;left:5.4%;font:700 12px/1 ui-monospace,monospace;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--navy);}
+.logo{position:absolute;top:3.8%;right:5.4%;height:34px;width:auto;}
+.body{margin:auto 0;width:100%;}
+.kicker{font:700 13px/1 ui-monospace,monospace;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--navy);margin:0 0 12px;}
+h1{font-size:clamp(32px,5.2vw,64px);font-weight:800;letter-spacing:-.03em;line-height:1.02;margin:0 0 14px;}
+h2{font-size:clamp(24px,3.4vw,42px);font-weight:800;letter-spacing:-.02em;line-height:1.08;margin:0 0 14px;max-width:24ch;}
+p,li{font-size:clamp(15px,1.7vw,21px);line-height:1.35;margin:0 0 8px;max-width:52ch;}
+ul,ol{margin:0;padding-left:1.15em;}
+.tag{margin-top:10px;font-weight:800;color:var(--navy);white-space:nowrap;}
+.nums{display:flex;gap:14px;flex-wrap:wrap;margin:6px 0 12px;}
+.num{flex:1;min-width:150px;border:2px solid var(--navy);border-radius:12px;padding:12px 14px;}
+.nlab{font:700 11px/1 ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);margin-bottom:8px;}
+.nval{font-size:clamp(18px,2.2vw,30px);font-weight:800;line-height:1.1;}
+.nsub{margin-top:6px;font-size:13px;font-weight:600;}
+.call{margin-top:12px;border-left:6px solid var(--navy);background:var(--wash);padding:10px 14px;
+  border-radius:0 10px 10px 0;font-size:clamp(14px,1.55vw,19px);line-height:1.32;}
+.call.alert{border-left-color:var(--alert);background:#FBECEC;}
+.chain{position:relative;height:42px;border:2px solid var(--navy);border-radius:8px;overflow:hidden;margin:6px 0 4px;}
+.chain .nterm{position:absolute;left:0;top:0;bottom:0;background:#3B5BDB;}
+.chain .lost{position:absolute;top:0;bottom:0;background:#8C1515;}
+.chain .k668{position:absolute;top:-8px;width:3px;height:58px;background:#000;}
+.chain .miss{position:absolute;top:0;bottom:0;width:3px;background:#7A5800;}
+.chain-lab{display:flex;justify-content:space-between;align-items:center;font:700 12px/1 ui-monospace,monospace;margin:10px 0 2px;}
+.chain-lab b{font-size:13px;}
+.marks{display:flex;justify-content:space-between;font:700 12px/1 ui-monospace,monospace;margin-bottom:10px;}
+.fork{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:8px;}
+.fork div{border:2px solid var(--navy);border-radius:12px;padding:12px 14px;}
+.fork .no{border-color:var(--alert);}
+.fork h3{margin:0 0 6px;font-size:17px;}
+.fork p{font-size:15px;max-width:none;margin:0;}
+.rail{display:flex;gap:8px;margin:0 0 16px;}
+.rail span{flex:1;border:2px solid var(--navy);border-radius:999px;padding:8px 10px;text-align:center;
+  font:700 11px/1.2 ui-monospace,monospace;letter-spacing:.04em;text-transform:uppercase;}
+.rail span.on{background:var(--navy);color:#fff;}
+.meter{height:22px;border:2px solid var(--navy);border-radius:6px;overflow:hidden;background:#fff;margin:8px 0 14px;}
+.meter i{display:block;height:100%;width:0;background:var(--blue);transform-origin:left center;
+  transform:scaleX(0);}
+.slide.active .meter i{transform:scaleX(1);transition:transform 1s ease;}
+.meter.mid i{background:var(--navy);}
+.meter.low i{background:var(--alert);}
+.score{font-size:clamp(40px,5.8vw,70px);font-weight:800;letter-spacing:-.04em;line-height:1;}
+.foot{position:absolute;bottom:3.8%;left:5.4%;right:5.4%;display:flex;justify-content:space-between;
+  font:700 12px/1 ui-monospace,monospace;letter-spacing:.04em;color:var(--navy);}
+.bar{position:fixed;left:0;bottom:0;height:5px;width:100%;background:rgba(29,22,82,.12);z-index:9;}
+.bar i{display:block;height:100%;width:0;background:var(--navy);transition:width .2s;}
+.tiny{font-size:14px;font-weight:700;max-width:70ch;}
+.signal{display:flex;flex-direction:column;gap:10px;margin-top:8px;}
+.sigrow{display:grid;grid-template-columns:170px 1fr 72px;gap:12px;align-items:center;}
+.siglab{font:800 16px/1.1 -apple-system,'Segoe UI',sans-serif;}
+.sigR{font:800 28px/1 -apple-system,'Segoe UI',sans-serif;text-align:right;}
+.sigbar{position:relative;height:28px;border:2px solid var(--navy);border-radius:6px;overflow:hidden;background:#fff;display:flex;}
+.sigbar > span{display:block;height:100%;transform-origin:left center;transform:scaleX(0);}
+.slide.active .sigbar > span{transform:scaleX(1);transition:transform .9s ease;}
+.sigbar .sm{background:var(--m);}
+.sigbar .sg{background:var(--g);}
+.sigbar .sp{background:var(--p);}
+.sigbar .sl{background:var(--l);}
+.legend{display:flex;gap:14px;margin-top:10px;font:700 12px/1 ui-monospace,monospace;letter-spacing:.04em;text-transform:uppercase;}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:2px;margin-right:6px;vertical-align:-1px;}
+.quad{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px;}
+.quad div{border:2px solid var(--navy);border-radius:12px;padding:12px 14px;}
+.quad h3{margin:0 0 6px;font-size:16px;}
+.quad p{margin:0;font-size:15px;max-width:none;}
+.quad .no{border-color:var(--alert);}
+.podium{display:grid;grid-template-columns:1.15fr .95fr .85fr;gap:14px;align-items:end;margin-top:8px;}
+.pod{border:2px solid var(--navy);border-radius:12px;padding:16px;}
+.pod .place{font:700 11px/1 ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);}
+.pod.gold{background:var(--wash);}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;}
+.chip{border:2px solid var(--navy);border-radius:999px;padding:6px 10px;font:700 12px/1 ui-monospace,monospace;}
+html.video,html.video body{background:#fff;}
+html.video .hint,html.video .bar{display:none;}
+html.video .deck{padding:0;min-height:100vh;}
+html.video .slide{width:100vw;height:100vh;max-width:none;border-radius:0;box-shadow:none;aspect-ratio:auto;}
+html.still .meter i,html.still .sigbar > span{transform:none;transition:none;}
+@media print{
+  @page{size:landscape;margin:0;}
+  body{background:#fff;}
+  .deck{display:block;padding:0;}
+  .slide{display:flex!important;width:100vw;height:100vh;aspect-ratio:auto;border-radius:0;box-shadow:none;page-break-after:always;}
+  .bar,.hint{display:none;}
+  .meter i,.sigbar > span{transform:none;}
+}
+</style>
+</head>
+<body>
+<div class="hint">arrows or click · print to PDF</div>
+<div class="deck">
+
+<section class="slide" id="s1">
+  <img class="logo" src="GenoBank.io_logo.svg" alt="GenoBank.io">
+  <div class="body">
+    <p class="kicker">Track 2 · Drug repositioning · wisdom777</p>
+    <h1>BUB1B MVA type 1.<br>Rank medicines by remaining protein.</h1>
+    <p class="tag">Research hypothesis. Not medical care. Genome gated. CC BY 4.0.</p>
+  </div>
+  <div class="foot"><span>GenoBank.io</span><span>1 / 12</span></div>
+</section>
+
+<section class="slide" id="s2">
+  <div class="lab">01 · Alleles</div>
+  <img class="logo" src="GenoBank.io_logo.svg" alt="">
+  <div class="body">
+    <h2>The thinking starts with the alleles, not a drug list.</h2>
+    <div class="nums">
+      <div class="num"><div class="nlab">Stop</div><div class="nval">p.Leu737Ter</div><div class="nsub">Exon 17 of 23. ClinVar 533901. Kinase 766 to 1050 deleted if translated.</div></div>
+      <div class="num"><div class="nlab">Missense</div><div class="nval">p.Asn1002Lys</div><div class="nsub">AlphaMissense 0.9229. Kinase residue 1002. Last exon.</div></div>
+      <div class="num"><div class="nlab">Concordance</div><div class="nval">VEP + EVEE</div><div class="nsub">Stop is pathogenic-class. EVEE names MVA1.</div></div>
+    </div>
+    <div class="call"><b>Architecture.</b> Classic MVA type 1: one truncating allele plus one kinase missense. OMIM 257300. Phase untested.</div>
+  </div>
+  <div class="foot"><span>GenoBank.io</span><span>2 / 12</span></div>
+</section>
+
+<section class="slide" id="s3">
+  <div class="lab">02 · Remaining protein</div>
+  <img class="logo" src="GenoBank.io_logo.svg" alt="">
+  <div class="body">
+    <h2>NMD expected. The protein that remains is the missense allele.</h2>
+    <div class="chain-lab"><b>Allele A · p.Leu737Ter · exon 17/23 · NMD expected</b><span>stub only if escape</span></div>
+    <div class="chain" aria-hidden="true">
+      <span class="nterm" style="width:70.1%"></span>
+      <span class="lost" style="left:70.1%;width:29.9%"></span>
+      <span class="k668" style="left:63.6%"></span>
+    </div>
+    <div class="marks"><span>1</span><span>K668</span><span>737 Ter</span><span>kinase gone</span><span>1050</span></div>
+    <div class="chain-lab"><b>Allele B · p.Asn1002Lys · default remaining BUBR1</b><span>full-length · K668 present</span></div>
+    <div class="chain" aria-hidden="true">
+      <span class="nterm" style="width:100%;background:#1D1652"></span>
+      <span class="k668" style="left:63.6%"></span>
+      <span class="miss" style="left:95.4%"></span>
+    </div>
+    <div class="marks"><span>1</span><span>K668</span><span>kinase</span><span>N1002K</span><span>1050</span></div>
+    <div class="call">North 2014 used hypomorphic full-length BUBR1. Under NMD, that mouse is the closer model, not a weaker one.</div>
+  </div>
+  <div class="foot"><span>GenoBank.io</span><span>3 / 12</span></div>
+</section>
+
+<section class="slide" id="s4">
+  <div class="lab">03 · Geometry</div>
+  <img class="logo" src="GenoBank.io_logo.svg" alt="">
+  <div class="body">
+    <h2>If the stub escapes, Cosic still maps it. K668 is the drug site either way.</h2>
+    <div class="nums">
+      <div class="num"><div class="nlab">EIIP remaining</div><div class="nval">0.810</div><div class="nsub">N-terminal adaptor still encoded on residues 1 to 736.</div></div>
+      <div class="num"><div class="nlab">Piezo remaining</div><div class="nval">0.534</div><div class="nsub">Kinase-scale dipole harmonic halved. Not proof of expression.</div></div>
+      <div class="num"><div class="nlab">SIRT2 site</div><div class="nval">K668</div><div class="nsub">On the missense protein for certain. North 2014.</div></div>
+    </div>
+    <div class="call">A kinase inhibitor has no intact substrate. A stabilizer of remaining BUBR1 does.</div>
+  </div>
+  <div class="foot"><span>GenoBank.io</span><span>4 / 12</span></div>
+</section>
+
+<section class="slide" id="s5">
+  <div class="lab">04 · Thinking</div>
+  <img class="logo" src="GenoBank.io_logo.svg" alt="">
+  <div class="body">
+    <h2>Five steps. Then three doors.</h2>
+    <div class="rail">
+      <span class="on">1 Alleles</span>
+      <span class="on">2 NMD</span>
+      <span class="on">3 Geometry</span>
+      <span class="on">4 Fork</span>
+      <span>5 R signal</span>
+    </div>
+    <div class="fork">
+      <div>
+        <h3>Restore protein</h3>
+        <p>SIRT2 / NAD+ stabilizes remaining BUBR1 at K668.</p>
+      </div>
+      <div>
+        <h3>Brake mTOR / AMPK</h3>
+        <p>Extra-mitotic wasting in BubR1 mice. Muscle atrophy. Failure to thrive.</p>
+      </div>
+      <div class="no">
+        <h3>Do not silence SAC</h3>
+        <p>Microtubule poisons, MPS1 inhibitors, aneuploid-cell killers, senolytics.</p>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>GenoBank.io</span><span>5 / 12</span></div>
+</section>
+
+<section class="slide" id="s6">
+  <div class="lab">05 · Reject</div>
+  <img class="logo" src="GenoBank.io_logo.svg" alt="">
+  <div class="body">
+    <h2>Do not poison a weak checkpoint. Do not run the BubR1 senolytic playbook here.</h2>
+    <div class="quad">
+      <div class="no"><h3>Microtubule poisons</h3><p>Vincristine, paclitaxel: weaken attachment error-correction.</p></div>
+      <div class="no"><h3>SAC inhibitors</h3><p>Reversine, alisertib: silence a checkpoint that is already weak.</p></div>
+      <div class="no"><h3>Aneuploid-cell killers</h3><p>17-AAG, high-dose AICAR: this genome is mosaic.</p></div>
+      <div class="no"><h3>Senolytics R 19</h3><p>Baker 2011/2016 on BubR1H/H. D+Q is not a pediatric MVA label on an RMS background.</p></div>
+    </div>
+    <div class="call alert"><b>Tumour protocols stay tumour protocols.</b> They are not a constitutional MVA therapy.</div>
+  </div>
+  <div class="foot"><span>GenoBank.io</span><span>6 / 12</span></div>
+</section>
+
+<section class="slide" id="s7">
+  <div class="lab">06 · Responsiveness signal</div>
+  <img class="logo" src="GenoBank.io_logo.svg" alt="">
+  <div class="body">
+    <h2>R is a genotype index, not a probability of benefit.</h2>
+    <p class="tiny">R = 100 × (0.35 M + 0.25 G + 0.20 P + 0.20 L) × (1 − C). Weights frozen before scoring.</p>
+    <div class="signal">
+      <div class="sigrow">
+        <div class="siglab">Nicotinamide</div>
+        <div class="sigbar" title="M G P L, then C = 0.15">
+          <span class="sm" style="width:35%"></span>
+          <span class="sg" style="width:25%"></span>
+          <span class="sp" style="width:8%"></span>
+          <span class="sl" style="width:14%"></span>
+        </div>
+        <div class="sigR">70</div>
+      </div>
+      <div class="sigrow">
+        <div class="siglab">Metformin</div>
+        <div class="sigbar">
+          <span class="sm" style="width:14%"></span>
+          <span class="sg" style="width:7.5%"></span>
+          <span class="sp" style="width:11%"></span>
+          <span class="sl" style="width:20%"></span>
+        </div>
+        <div class="sigR">53</div>
+      </div>
+      <div class="sigrow">
+        <div class="siglab">Sirolimus</div>
+        <div class="sigbar">
+          <span class="sm" style="width:21%"></span>
+          <span class="sg" style="width:12.5%"></span>
+          <span class="sp" style="width:17%"></span>
+          <span class="sl" style="width:20%"></span>
+        </div>
+        <div class="sigR">42</div>
+      </div>
+    </div>
+    <div class="legend">
+      <span><i style="background:var(--m)"></i>M mechanism</span>
+      <span><i style="background:var(--g)"></i>G geometry</span>
+      <span><i style="background:var(--p)"></i>P phenotype</span>
+      <span><i style="background:var(--l)"></i>L pediatric label</span>
+    </div>
+    <div class="call">Sirolimus inner score is 70.5 before the RMS penalty. C = 0.40 is why it is third. No MVA outcomes exist to Platt-calibrate R.</div>
+  </div>
+  <div class="foot"><span>GenoBank.io</span><span>7 / 12</span></div>
+</section>
+
+<section class="slide" id="s8">
+  <div class="lab">07 · Candidate 1</div>
+  <img class="logo" src="GenoBank.io_logo.svg" alt="">
+  <div class="body">
+    <p class="kicker">Nicotinamide · NR/NMN analog</p>
+    <div class="score">R 70</div>
+    <div class="meter" style="max-width:520px"><i style="width:70%"></i></div>
+    <div class="chips"><span class="chip">M 1.00</span><span class="chip">G 1.00</span><span class="chip">P 0.40</span><span class="chip">L 0.70</span><span class="chip">C 0.15</span></div>
+    <p>Only ranked candidate whose target is BUBR1 protein. SIRT2 deacetylates K668. North 2014: SIRT2 extends BubR1-hypomorphic mouse median lifespan 58%.</p>
+    <p>High-dose nicotinamide can inhibit sirtuins, so C = 0.15. NR is the closer molecule and is not a rare-disease label.</p>
+  </div>
+  <div class="foot"><span>GenoBank.io</span><span>8 / 12</span></div>
+</section>
+
+<section class="slide" id="s9">
+  <div class="lab">08 · Candidate 2</div>
+  <img class="logo" src="GenoBank.io_logo.svg" alt="">
+  <div class="body">
+    <p class="kicker">Metformin</p>
+    <div class="score">R 53</div>
+    <div class="meter mid" style="max-width:520px"><i style="width:53%"></i></div>
+    <div class="chips"><span class="chip">M 0.40</span><span class="chip">G 0.30</span><span class="chip">P 0.55</span><span class="chip">L 1.00</span><span class="chip">C 0.00</span></div>
+    <p>AMPK activator. Pediatric type 2 diabetes use. Milder mTORC1 brake.</p>
+    <p>Tang and Amon 2011 used high-dose AICAR as an aneuploid-cell killer. That reading is on the reject list. Metformin stays only as a metabolic buffer, not a cytotoxic selector against this child's mosaic cells.</p>
+  </div>
+  <div class="foot"><span>GenoBank.io</span><span>9 / 12</span></div>
+</section>
+
+<section class="slide" id="s10">
+  <div class="lab">09 · Candidate 3</div>
+  <img class="logo" src="GenoBank.io_logo.svg" alt="">
+  <div class="body">
+    <p class="kicker">Sirolimus</p>
+    <div class="score">R 42</div>
+    <div class="meter low" style="max-width:520px"><i style="width:42%"></i></div>
+    <div class="chips"><span class="chip">M 0.60</span><span class="chip">G 0.50</span><span class="chip">P 0.85</span><span class="chip">L 1.00</span><span class="chip">C 0.40</span></div>
+    <p>Strongest mTORC1 mouse match (Sieben 2020) and strongest phenotype match (muscle atrophy). Pediatric TSC label.</p>
+    <div class="call alert"><b>Sensitivity.</b> Drop the rhabdomyosarcoma penalty (C = 0) and sirolimus rises to 71, essentially tied with nicotinamide. That penalty is why it is third, not first.</div>
+  </div>
+  <div class="foot"><span>GenoBank.io</span><span>10 / 12</span></div>
+</section>
+
+<section class="slide" id="s11">
+  <div class="lab">10 · Rank</div>
+  <img class="logo" src="GenoBank.io_logo.svg" alt="">
+  <div class="body">
+    <h2>70, then 53, then 42. A ranking, not a plan.</h2>
+    <div class="podium">
+      <div class="pod gold">
+        <div class="place">1 · remaining BUBR1</div>
+        <div class="score">70</div>
+        <p>Nicotinamide / NR</p>
+        <div class="meter"><i style="width:70%"></i></div>
+      </div>
+      <div class="pod">
+        <div class="place">2 · metabolic brake</div>
+        <div class="score">53</div>
+        <p>Metformin</p>
+        <div class="meter mid"><i style="width:53%"></i></div>
+      </div>
+      <div class="pod">
+        <div class="place">3 · mTOR, after RMS</div>
+        <div class="score">42</div>
+        <p>Sirolimus</p>
+        <div class="meter low"><i style="width:42%"></i></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>GenoBank.io</span><span>11 / 12</span></div>
+</section>
+
+<section class="slide" id="s12">
+  <div class="lab">11 · Close</div>
+  <img class="logo" src="GenoBank.io_logo.svg" alt="">
+  <div class="body">
+    <h2>Ask which protein remains. Then score R. Genome stays behind biocid://.</h2>
+    <p>The same remaining-protein map scales to CEP57 and TRIP13 MVA: NMD first, Cosic on any escape chain, SIRT2/NAD+ if a stability site remains, mTOR/AMPK if extra-mitotic wasting is present.</p>
+    <div class="call">Thank you to the child and family, Sage Bionetworks, the MVA Society, Hugging Face, BEACON, AWS, and Anthropic.</div>
+  </div>
+  <div class="foot"><span>GenoBank.io</span><span>12 / 12</span></div>
+</section>
+
+</div>
+<div class="bar"><i></i></div>
+<script>
+var S=[].slice.call(document.querySelectorAll('.slide')), i=0, bar=document.querySelector('.bar i');
+var q=location.search||'';
+if(/video=1/.test(q)) document.documentElement.classList.add('video');
+if(/still=1/.test(q)) document.documentElement.classList.add('still');
+var slideQ=(/slide=(\d+)/.exec(q)||[])[1];
+function show(n){
+  i=Math.max(0,Math.min(S.length-1,n));
+  S.forEach(function(s,k){s.classList.toggle('active',k===i);});
+  if(bar) bar.style.width=((i+1)/S.length*100)+'%';
+  var qs=location.search||'';
+  var next='#'+(i+1);
+  if(location.hash!==next) history.replaceState(null,'',qs+next);
+}
+document.addEventListener('keydown',function(e){
+  if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){e.preventDefault();show(i+1);}
+  else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();show(i-1);}
+});
+document.addEventListener('click',function(e){
+  if(e.target.closest('a')) return;
+  show(e.clientX>window.innerWidth/2?i+1:i-1);
+});
+window.addEventListener('hashchange',function(){
+  var n=parseInt((location.hash||'#1').slice(1),10); if(!isNaN(n)) show(n-1);
+});
+show((parseInt(slideQ||(location.hash||'#1').slice(1),10)||1)-1);
+</script>
+</body>
+</html>
