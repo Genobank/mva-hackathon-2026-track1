@@ -1,16 +1,27 @@
-# MVA Hackathon 2026 Track 1 (wisdom777)
+# MVA Hackathon 2026 (wisdom777 / GenoBank.io)
 
-GenoBank.io BioFS submission for Rare Disease, Real Kid: The MVA Hackathon 2026, Track 1 (variant prediction).
+GenoBank.io BioFS submission for Rare Disease, Real Kid: The MVA Hackathon 2026.
 
 Research hypothesis. Not medical care. Outputs CC BY 4.0. The genome is not in this repository.
 
 Hugging Face account: `wisdom777`. Team name: GenoBank.io.
 
-## Files
+## Track 1 (submitted)
 
-- `wisdom777_acmg-bub1b.csv` — Track 1 predictions (PROBAND01, GRCh38)
-- `wisdom777_track1_report.md` — methods (this is the uploaded report)
-- `wisdom777_track1_methods.xlsx` — official judging form, filled
+- `wisdom777_acmg-bub1b.csv` / `genobank_acmg-bub1b.csv`: predictions (PROBAND01, GRCh38)
+- `wisdom777_track1_report.md`: methods
+- `wisdom777_track1_methods.xlsx`: official judging form
+
+Track 1 scored 100 / 100 rank points, F-max 1.000, full match at rank 1.
+
+## Track 2 (drug repositioning)
+
+- `genobank_track2_report.md`: mechanism plus 3 market-approved candidates
+- `genobank_track2_methods.xlsx`: official judging form
+- `track2/reposition_bub1b.py`: genome-free remaining-chain map
+- `track2/pitch_script.txt` and `track2/genobank_track2_pitch.mp4`: 3-minute pitch (upload to YouTube or Vimeo before Space submit)
+
+Candidates: nicotinamide (SIRT2/NAD+ stabilize remaining BUBR1 at K668), sirolimus (mTORC1 in BubR1 mice), metformin (AMPK). Mitotic poisons and aneuploid-cell killers are rejected as constitutional therapy.
 
 ## Ranking
 

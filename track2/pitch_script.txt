@@ -1,0 +1,19 @@
+This is GenoBank.io, Track 2 of the Rare Disease, Real Kid MVA hackathon. Research hypothesis. Not medical care.
+
+Track 1 found biallelic BUB1B loss of function. One allele is a stop at leucine 737. That deletes the kinase, residues 766 to 1050. The other allele is asparagine 1002 to lysine, a kinase missense with AlphaMissense 0.9229. Independent VEP and EVEE both call the stop pathogenic-class. EVEE names Mosaic variegated aneuploidy syndrome 1.
+
+Cosic family-frequency scoring on the remaining chain is the mechanistic fact that changes the drug map. Electron-ion potential at 37.7 residues still reads 81 percent of wild type. The N-terminal spindle adaptor is still there. Piezoelectric scoring at 88 residues falls to 53 percent. The kinase-scale harmonic is gone. Lysine 668, the SIRT2 site that controls BUBR1 protein stability, is on that remaining chain.
+
+There is no licensed medicine for MVA. We do not propose microtubule poisons, MPS1 inhibitors, or aneuploid-cell killers as a constitutional therapy. Those agents silence a checkpoint that is already weak, or they select against mosaic cells that are this child's tissues.
+
+Three market-approved agents map onto the mouse genetics.
+
+First, nicotinamide, with nicotinamide riboside as the research analog. SIRT2 deacetylates BUBR1 at lysine 668 and stops the protein being tagged for destruction. North and colleagues showed that raising NAD plus, or overexpressing SIRT2, increases BUBR1 protein and extends lifespan in BubR1-hypomorphic mice by 58 percent. That is the only candidate whose target is BUBR1 itself.
+
+Second, sirolimus. BubR1 allelic-series mice have mTORC1 hyperactivity that tracks muscle wasting. This phenotype list includes skeletal muscle atrophy and failure to thrive. Sirolimus is an approved mTORC1 inhibitor with pediatric use in tuberous sclerosis. It does not restore chromosome segregation. It is a hypothesis for the extra-mitotic tissue failure.
+
+Third, metformin. An AMPK activator with pediatric use. A milder metabolic and mTOR brake. Not a cytotoxic selector.
+
+Rank order is nicotinamide, then sirolimus, then metformin. That is a research ranking for a judging panel, not a treatment plan. The same remaining-chain map scales to CEP57 and TRIP13 MVA without putting a genome on a laptop.
+
+Thank you to the child and family, and to Sage Bionetworks, the MVA Society, Hugging Face, BEACON, AWS, and Anthropic.
